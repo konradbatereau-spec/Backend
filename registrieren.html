@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Chat</title>
+</head>
+
+<body class="mitte">
+    <div class="text-links">
+        <h1>Registrieren</h1>
+        <p>Hier kannst du dich mit Namen und Passwort registrieren.</p>
+        <div class="m-t-15 m-b-15">
+            <label>Name:</label>
+            <input id="name">
+        </div>
+        <div class="m-t-15 m-b-15">
+            <label>Passwort:</label>
+            <input id="passwort">
+        </div>
+        <div>
+            <button class="button hintergrund-blau" onclick="registrieren()">Registrieren</button>
+            <span id="meldung"></span>
+        </div>
+    <audio id="hintergrundmusik" autoplay loop>
+        <source src="musik.mp3" type="audio/mpeg">
+    </audio>    
+    <script>
+    const musik = document.getElementById("hintergrundmusik");
+    musik.playbackRate = 10;
+        const meldungSpan = document.getElementById("meldung")
+        function registrieren() {
+            const name = document.getElementById("name").value;
+            const passwort = document.getElementById("passwort").value;
+
+            if (name in localStorage) {
+                meldungSpan.innerText = "Name schon vergeben"
+                meldungSpan.style.color="#F17A7C"
+            } else {
+                localStorage.setItem(name, passwort);
+                meldungSpan.innerText = "erfolgreich"
+                meldungSpan.style.color="#F17A7C"
+            }
+        }
+    </script>
+</body>
+
+</html>
