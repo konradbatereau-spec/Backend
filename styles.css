@@ -6,10 +6,10 @@ body {
 }
 
 .mitte {
+    height: calc(100vh - 35px);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 .button {
@@ -31,6 +31,19 @@ body {
 
 .hintergrund-blau {
     background-color: #5B63B7;
+}
+
+.text-weiß {
+    color: white;
+    text-decoration: none;
+}
+
+a svg {
+    margin-bottom: -2px;
+}
+
+a:hover {
+    filter: brightness(0.85);
 }
 
 .text-links {
@@ -60,4 +73,9 @@ button {
 
 button:hover {
     cursor: pointer;
+}
+
+textarea {
+    width: 500px;
+    height: 300px;
 }
