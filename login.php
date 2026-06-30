@@ -47,7 +47,7 @@
             const name = document.getElementById("name").value;
             const passwort = document.getElementById("passwort").value;
             if (passwort == localStorage.getItem(name)) {
-                window.location.href = "intern.html";
+                window.location.href = "intern.php";
                 localStorage.setItem("eingelogt",name)
             } else {
                 meldungSpan.style.color = "#F17A7C";

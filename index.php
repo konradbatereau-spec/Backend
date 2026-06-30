@@ -12,8 +12,8 @@
     <div>
         <img src="logo.png" width="150">
         <h1>Willkommen beim Chat!</h1>
-        <a class="button hintergrund-grün" href="login.html">Login</a>
-        <a class="button hintergrund-blau" href="registrieren.html">Registrieren</a>
+        <a class="button hintergrund-grün" href="login.php">Login</a>
+        <a class="button hintergrund-blau" href="registrieren.php">Registrieren</a>
     </div>
     <audio autoplay>
         <source src="musik.mp3" type="audio/mpeg">

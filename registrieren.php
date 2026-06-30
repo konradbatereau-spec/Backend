@@ -1,3 +1,23 @@
+
+<?php
+$datenbank = new SQLite3("datenbank.db");
+
+$datenbank->exec("CREATE TABLE IF NOT EXISTS nutzer (name, passwort)");
+if($_SERVER["REQUEST_METHOD"]=="POST") {
+    $name = $_POST["name"];
+    $passwort = $_POST["passwort"];
+    $anzahl=$datenbank->querySingle("SELECT COUNT(*) FROM nutzer WHere name = '$name'");
+    echo("$anzahl");
+    if ($anzahl == 0){
+        $datenbank->exec("insert into nutzer values ('$name', '$passwort')");
+    } else {
+        echo "Nutzername bereits vergeben!";
+    }
+}
+?>
+
+
+
 <!DOCTYPE html>
 
 <html>
@@ -23,18 +43,20 @@
         <div class="text-links">
             <h1>Registrieren</h1>
             <p>Hier kannst du dich mit Namen und Passwort registrieren.</p>
-            <div class="m-t-15 m-b-15">
-                <label>Name:</label>
-                <input id="name" type="text">
-            </div>
-            <div class="m-t-15 m-b-15">
-                <label>Passwort:</label>
-                <input id="passwort" type="password">
-            </div>
-            <div>
-                <button class="button hintergrund-blau" onclick="registrieren()">Registrieren</button>
-                <span id="meldung"></span>
-            </div>
+            <form method="POST">
+                <div class="m-t-15 m-b-15">
+                    <label>Name:</label>
+                    <input id="name" name="name" type="text">
+                </div>
+                <div class="m-t-15 m-b-15">
+                    <label>Passwort:</label>
+                    <input id="passwort" name="passwort" type="password">
+                </div>
+                <div>
+                    <button class="button hintergrund-blau" onclick="registrieren()" type="submit">Registrieren</button>
+                    <span id="meldung"></span>
+                </div>
+            </form>
         </div>
     </div>
     <audio autoplay>
